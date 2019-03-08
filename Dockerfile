@@ -1,4 +1,4 @@
-FROM runzexia/builder-base:latest
+FROM kubesphere/builder-base:latest
 
 ENV GOLANG_VERSION 1.11
 RUN wget https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.gz && \
@@ -11,5 +11,6 @@ ENV GOROOT /usr/local/go
 ENV GOPATH=/home/jenkins/go
 ENV PATH $PATH:$GOPATH/bin
 
+RUN mkdir -p $GOPATH/bin && mkdir -p $GOPATH/src && mkdir -p $GOPATH/pkg
 
 CMD ["go","version"]
