@@ -1,5 +1,6 @@
 FROM kubesphere/builder-base:latest
 
+RUN yum -y groupinstall 'Development Tools'  && yum -y clean all --enablerepo='*'
 ENV GOLANG_VERSION 1.11
 RUN wget https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.gz && \
   tar -C /usr/local -xzf go$GOLANG_VERSION.linux-amd64.tar.gz && \
